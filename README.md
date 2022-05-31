@@ -1,2 +1,2 @@
-# gima-website
- Website do Grupo Imagem & Ação
+# Grupo Imagem & Ação
+Website do Grupo Imagem & Ação

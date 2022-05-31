@@ -1,0 +1,48 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contato</title>
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav id="navbar">
+      <ul>
+        <li><a href="/" class="nav-left">Inicio</a></li>
+        <li><a href="/contato" class="nav-right active">Contato</a></li>
+        <li><a href="/" class="nav-right">Projetos</a></li>
+        <li><a href="/" class="nav-right">Eventos</a></li>
+        <li><a href="/" class="nav-right">Minicursos</a></li>
+        <li><a href="/colaboradores" class="nav-right">Colaboradores</a></li>
+      </ul>
+    </nav>
+
+    <div id="title-header">
+      <div>
+        <a href="/">
+          <img
+            src="{% static 'images/logo.png' %}"
+            alt="Logo do GIMA"
+            id="logo"
+          />
+        </a>
+        <h1>GRUPO IMAGEM & AÇÃO</h1>
+      </div>
+    </div>
+
+    <div id="contato-content-box" class="content-box">
+      <div id="content-title">
+        <h1>Contato</h1>
+      </div>
+
+      <div class="content-text" id="contato-content">
+        <p>e-mail: cpimagens@uesc.br</p>
+      </div>
+    </div>
+  </body>
+</html>
