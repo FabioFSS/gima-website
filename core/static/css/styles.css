@@ -1,21 +1,25 @@
 *{
     margin: 0px;
     padding: 0px;
-    color: #214174;
+    color: #173157;
     font-family: sans-serif;
 }
 body{
-    background-color: #DDEDEF;
+    background-color: #F2F4F8;
 }
 
 
 /* Navbar styles */
+#navbar{
+    display: flex;
+    position: absolute;
+    width: 100%;
+}
+
 #navbar ul{
+    width: 100%;
     list-style-type: none;
-    margin: 0;
-    padding: 0px 75px;
-    overflow: hidden;
-    background-color: #C5D2D9;
+    padding: 0px 100px;
 }
   
 .nav-left{
@@ -25,21 +29,26 @@ body{
 .nav-right{
     float: right;
 }
-  
+
 #navbar ul li a{
-    font-size: 18px;
-    display: block;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    margin: 15px 15px;
+    padding: 5px 10px;
+    font-size: 20px;
+    border-radius: 25px;
+    transition: background 100ms;
 }
 
 #navbar ul li .active{
-    font-weight: bolder;
+    font-weight: bold;
+    font-size: 22px;
+    background-color: #173157;
+    color: #F2F4F8;
 }
-  
+
 #navbar ul li a:hover{
-    color: #111;
+    background-color: #204275;
+    color: #F2F4F8;
 }
 
 /* Title header syles */
@@ -52,6 +61,7 @@ body{
     background-image: url('/static/images/background.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
+    font-size: 22px;
 }
 
 #logo{
@@ -64,40 +74,18 @@ body{
     padding: 50px 100px;
 }
 
-#index-content-box{
-    background-color: #57A4B17F;
-}
-
-#colaboradores-content-box{
-    background-color: #B0D8947F;
-}
-
-#contato-content-box{
-    background-color: #D9E1E57F;
-}
-
-#eventos-content-box{
-    background-color: #F953557F;
-}
-
-#minicursos-content-box{
-    background-color: #D9E1E57F;
-}
-
-#projetos-content-box{
-    background-color: #D9E1E57F;
-}
 
 #content-title{
     width: fit-content;
     padding: 20px;
     margin-bottom: 40px;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #C5D2D9;
+    font-size: 18px;
 }
 
 .content-text{
-    font-size: 20px;
+    font-size: 18px;
 }
 
 .content-text ul{
