@@ -76,6 +76,18 @@ body{
     background-color: #D9E1E57F;
 }
 
+#eventos-content-box{
+    background-color: #F953557F;
+}
+
+#minicursos-content-box{
+    background-color: #D9E1E57F;
+}
+
+#projetos-content-box{
+    background-color: #D9E1E57F;
+}
+
 #content-title{
     width: fit-content;
     padding: 20px;
