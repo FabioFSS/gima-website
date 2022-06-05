@@ -42,12 +42,12 @@ body{
 #navbar ul li .active{
     font-weight: bold;
     font-size: 22px;
-    background-color: #173157;
+    background-color: #1731577F;
     color: #F2F4F8;
 }
 
 #navbar ul li a:hover{
-    background-color: #204275;
+    background-color: #2042757F;
     color: #F2F4F8;
 }
 
@@ -64,9 +64,15 @@ body{
     font-size: 22px;
 }
 
+#title-header h1{
+    background-color: #A4BFDF7F;
+    border-radius: 25px;
+    padding: 15px;
+}
+
 #logo{
     height: 150px;
-    margin: 50px;
+    margin: 25px;
 }
 
 /* Page content styles */
@@ -77,9 +83,9 @@ body{
 
 #content-title{
     width: fit-content;
-    padding: 20px;
+    padding: 15px;
     margin-bottom: 40px;
-    border-radius: 20px;
+    border-radius: 25px;
     background-color: #C5D2D9;
     font-size: 18px;
 }
