@@ -6,7 +6,7 @@ class ProjetoAdmin(admin.ModelAdmin):
 
 
 class AulaAdmin(admin.ModelAdmin):
-    list_display = ('introducao', 'projeto_fk')
+    list_display = ('nome', 'numero', 'projeto_fk')
 
 
 admin.site.register(Projeto, ProjetoAdmin)

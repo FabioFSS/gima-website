@@ -7,7 +7,8 @@ class Projeto(models.Model):
     periodo = models.CharField(max_length=100)
 
 class Aula(models.Model):
-    introducao = models.TextField()
+    nome = models.TextField()
+    numero = models.IntegerField(default=0)
     video = models.TextField()
     roteiro_pratica = models.TextField()
     projeto_fk = models.ForeignKey(Projeto, on_delete=models.CASCADE)
