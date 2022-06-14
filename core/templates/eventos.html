@@ -6,19 +6,19 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eventos</title>
+    <title>GIMA - Eventos</title>
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
   </head>
 
   <body>
     <nav id="navbar">
       <ul>
-        <li><a href="/" class="nav-left">Inicio</a></li>
-        <li><a href="/contato" class="nav-right">Contato</a></li>
-        <li><a href="/projetos" class="nav-right">Projetos</a></li>
-        <li><a href="/eventos" class="nav-right active">Eventos</a></li>
-        <li><a href="/minicursos" class="nav-right">Minicursos</a></li>
-        <li><a href="/colaboradores" class="nav-right">Colaboradores</a></li>
+        <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
+        <li><a href="{% url 'contato' %}" class="nav-right">Contato</a></li>
+        <li><a href="{% url 'projetos' %}" class="nav-right">Projetos</a></li>
+        <li><a href="{% url 'eventos' %}" class="nav-right active">Eventos</a></li>
+        <li><a href="{% url 'minicursos' %}" class="nav-right">Minicursos</a></li>
+        <li><a href="{% url 'colaboradores' %}" class="nav-right">Colaboradores</a></li>
       </ul>
     </nav>
 

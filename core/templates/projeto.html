@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>GIMA - Projetos</title>
     <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    <link href="{% static 'css/projeto.css' %}" rel="stylesheet" />
   </head>
 
   <body>
@@ -45,17 +46,40 @@
 
     <div id="projetos-content-box" class="content-box">
       <div id="content-title">
-        <h1>PROJETOS</h1>
+        <h1>{{ projeto.titulo }}</h1>
       </div>
 
       <div class="content-text" id="projetos-content">
-        <ul>
-          {% for projeto in projetos %}
-          <li>
-            <a href="{% url 'projeto' projeto.id %}">{{projeto.titulo}}</a>
-          </li>
-          {% endfor %}
-        </ul>
+        <div class="project-data">
+          <div id="objetivo-box">
+            <h2>Objetivo:</h2>
+            <p>{{ projeto.objetivos }}</p>
+          </div>
+          
+          <div id="autores-box">
+            <h2>Autores:</h2>
+            <p>{{ projeto.autores }}</p>
+          </div>
+  
+          <div id="periodo-box">
+            <h2>Periodo de desenvolvimento:</h2>
+            <p>{{ projeto.periodo }}</p>
+          </div>
+  
+          <div id="aula-box">
+            <h2>Aulas</h2>
+            {% for aula in aulas %}
+    
+            <div class="class-box">
+              <h3>{{ aula.introducao }}</h3>
+              <iframe src="{{ aula.video }}"> </iframe>
+              <a href="{{ aula.roteiro_pratica }}" target="_blank">Roteiro de atividade pratica</a>
+            </div>
+    
+            {% endfor %}
+          </div>
+        </div>
+
       </div>
     </div>
   </body>
