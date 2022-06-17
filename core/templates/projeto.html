@@ -2,85 +2,113 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIMA - Projetos</title>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-    <link href="{% static 'css/projeto.css' %}" rel="stylesheet" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GIMA - Projetos</title>
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/projeto.css' %}" rel="stylesheet" />
+    </head>
 
-  <body>
-    <nav id="navbar">
-      <ul>
-        <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
-        <li><a href="{% url 'contato' %}" class="nav-right">Contato</a></li>
-        <li>
-          <a href="{% url 'projetos' %}" class="nav-right active">Projetos</a>
-        </li>
-        <li><a href="{% url 'eventos' %}" class="nav-right">Eventos</a></li>
-        <li>
-          <a href="{% url 'minicursos' %}" class="nav-right">Minicursos</a>
-        </li>
-        <li>
-          <a href="{% url 'colaboradores' %}" class="nav-right"
-            >Colaboradores</a
-          >
-        </li>
-      </ul>
-    </nav>
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
+                <li>
+                    <a href="{% url 'contato' %}" class="nav-right">Contato</a>
+                </li>
+                <li>
+                    <a href="{% url 'projetos' %}" class="nav-right active"
+                        >Projetos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'eventos' %}" class="nav-right">Eventos</a>
+                </li>
+                <li>
+                    <a href="{% url 'minicursos' %}" class="nav-right"
+                        >Minicursos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'colaboradores' %}" class="nav-right"
+                        >Colaboradores</a
+                    >
+                </li>
+            </ul>
+        </nav>
 
-    <div id="title-header">
-      <div>
-        <a href="/">
-          <img
-            src="{% static 'images/logo.png' %}"
-            alt="Logo do GIMA"
-            id="logo"
-          />
-        </a>
-        <h1>GRUPO IMAGEM & AÇÃO</h1>
-      </div>
-    </div>
-
-    <div id="projetos-content-box" class="content-box">
-      <div id="content-title">
-        <h1>{{ projeto.titulo }}</h1>
-      </div>
-
-      <div class="content-text" id="projetos-content">
-        <div class="project-data">
-          <div id="objetivo-box">
-            <h2>Objetivo:</h2>
-            <p>{{ projeto.objetivos }}</p>
-          </div>
-          
-          <div id="autores-box">
-            <h2>Autores:</h2>
-            <p>{{ projeto.autores }}</p>
-          </div>
-  
-          <div id="periodo-box">
-            <h2>Periodo de desenvolvimento:</h2>
-            <p>{{ projeto.periodo }}</p>
-          </div>
-  
-          <div id="aula-box">
-            <h2>Aulas</h2>
-            {% for aula in aulas %}
-    
-            <div class="class-box">
-              <h3>{{ aula.nome }}</h3>
-              <iframe src="{{ aula.video }}"> </iframe>
-              <a href="{{ aula.roteiro_pratica }}" target="_blank">Roteiro de atividade pratica</a>
+        <div id="title-header">
+            <div>
+                <a href="/">
+                    <img
+                        src="{% static 'images/logo.png' %}"
+                        alt="Logo do GIMA"
+                        id="logo"
+                    />
+                </a>
+                <h1>GRUPO IMAGEM & AÇÃO</h1>
             </div>
-    
-            {% endfor %}
-          </div>
         </div>
 
-      </div>
-    </div>
-  </body>
+        <div class="content-box">
+            <div id="content-title">
+                <h1>{{ projeto.titulo }}</h1>
+            </div>
+
+            <div class="content-text" id="projetos-body">
+                <div id="project-header">
+                    <p><b>Objetivo:</b> {{ projeto.objetivo }} </p>
+                    <p>
+                        <b>Autores:</b>
+                        <ul>
+                            {% for participacao in participacoes %}
+                            <li>
+                                {{ participacao.fk_autor.nome }}
+                                ({{participacao.fk_autor.fk_tipo_autor.tipo }})
+                                {% if participacao.bolsista == True %} - Bolsista{% endif %}
+                                {% if participacao.orientador == True %} - Orientador(a){% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                    <p><b>Periodo de desenvolvimento:</b> {{ projeto.inicio }} - {{ projeto.fim }}</p>
+                </div>
+
+                <div id="videos-files-section">
+                    <h2>Videos</h2>
+                    <h3>Aulas e apresentações</h3>
+                    <div class="videos-files-wrapper" id="videos-wrapper">
+                        <iframe
+                            src="{{ videos.first.link }}"
+                            frameborder="0"
+                            allowfullscreen
+                        ></iframe>
+                        <ul>
+                            {% for video in videos %}
+                            <a href="{{ video.link }}">
+                                <li>{{ video.titulo }}</li>
+                            </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <h2>Arquivos</h2>
+                    <h3>Relatórios, resumos e roteiros</h3>
+                    <div class="videos-files-wrapper" id="files-wrapper">
+                        <ul>
+                            {% for arquivo in arquivos %}
+                            <a href="{{ arquivo.link }}" target="_blank">
+                                <li>{{ arquivo.titulo }}</li>
+                            </a>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </body>
 </html>

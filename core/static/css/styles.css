@@ -1,100 +1,97 @@
-*{
+* {
     margin: 0px;
     padding: 0px;
-    color: #173157;
+    color: #002557;
     font-family: sans-serif;
 }
-body{
-    background-color: #F2F4F8;
+body {
+    background-color: #d3ddeb;
 }
 
-
 /* Navbar styles */
-#navbar{
+#navbar {
     display: flex;
     position: absolute;
     width: 100%;
 }
 
-#navbar ul{
+#navbar ul {
     width: 100%;
     list-style-type: none;
-    padding: 0px 100px;
 }
-  
-.nav-left{
+
+.nav-left {
     float: left;
 }
 
-.nav-right{
+.nav-right {
     float: right;
 }
 
-#navbar ul li a{
+#navbar ul li a {
     text-decoration: none;
     margin: 15px 15px;
     padding: 5px 10px;
-    font-size: 20px;
-    border-radius: 25px;
-    transition: background 100ms;
+    font-size: 16px;
+    transition: 200ms;
+    border-radius: 5px;
 }
 
-#navbar ul li .active{
+#navbar ul li .active {
     font-weight: bold;
-    font-size: 22px;
-    background-color: #1731577F;
-    color: #F2F4F8;
+    font-size: 18px;
+    background-color: #001d447f;
+    color: #ffffff;
+    box-shadow: #000c1d 0px 0px 8px;
 }
 
-#navbar ul li a:hover{
-    background-color: #2042757F;
-    color: #F2F4F8;
+#navbar ul li a:hover {
+    background-color: #0025577f;
+    color: #ffffff;
+    box-shadow: #000c1d 0px 0px 8px;
 }
 
 /* Title header syles */
-#title-header{
+#title-header {
     display: flex;
     text-align: center;
     align-items: center;
     justify-content: center;
-    height: 400px;
-    background-image: url('/static/images/background.jpg');
+    height: 250px;
+    background-image: url("/static/images/background.jpg");
     background-repeat: no-repeat;
     background-size: 100%;
-    font-size: 22px;
+    font-size: 18px;
 }
 
-#title-header h1{
-    background-color: #A4BFDF7F;
-    border-radius: 25px;
+#title-header h1 {
+    border-radius: 5px;
     padding: 15px;
 }
 
-#logo{
-    height: 150px;
-    margin: 25px;
+#logo {
+    height: 128px;
+    margin: 15px;
 }
 
 /* Page content styles */
-.content-box{
+.content-box {
     padding: 50px 100px;
+    margin: 0% 15%;
+    height: auto;
+    background-color: #a5b0df3f;
+    box-shadow: black 0px 0px 4px;
 }
 
-
-#content-title{
-    width: fit-content;
-    padding: 15px;
-    margin-bottom: 40px;
-    border-radius: 25px;
-    background-color: #C5D2D9;
-    font-size: 18px;
+#content-title {
+    margin: 15px 0px;
+    font-size: 14px;
 }
 
-.content-text{
-    font-size: 18px;
+.content-text {
+    font-size: 16px;
 }
 
-.content-text ul{
+.content-text ul {
     margin: 20px 40px;
 }
-

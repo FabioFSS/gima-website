@@ -1,0 +1,13 @@
+color palette
+
+darker
+#000C1D
+#001D44
+#002557
+#002D6A
+#2B558F
+#567DB3
+#ABCCFC
+#D3DDEB
+#FFFFFF
+lighter

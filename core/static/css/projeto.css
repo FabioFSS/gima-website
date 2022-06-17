@@ -1,28 +1,86 @@
-/* Project page styles */
-.project-data h1, p{
-    padding: 10px;
+/* Project header */
+#project-header {
+    text-align: left;
 }
 
-#autores-box, #objetivo-box, #periodo-box{
-    display: flex;
+#project-header p {
+    margin: 5px 0px;
 }
 
-#aula-box{
-    margin: 50px 0px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+/* Videos and files */
+#videos-files-section {
     text-align: center;
+    align-items: center;
     justify-content: center;
+    margin: 25px;
 }
 
-.class-box{
+/* Videos */
+#videos-wrapper {
     display: flex;
-    flex-direction: column;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+
+    margin: 25px 0px;
     padding: 25px;
+    box-shadow: black 0px 0px 4px;
+    background-color: #000C1D7F;
 }
 
-.class-box iframe{
-    width: 800px;
-    height: 450px;
+#videos-wrapper iframe {
+    width: 750px;
+    height: 350px;
+    border-radius: 5px;
+}
+
+#videos-wrapper ul {
+    list-style: none;
+}
+
+#videos-wrapper ul a{
+    text-decoration: none;
+}
+#videos-wrapper ul a li{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 200ms;
+    color: #D3DDEB;
+}
+
+#videos-wrapper ul a li:hover{
+    background-color: #ABCCFC7F;
+}
+
+/* Files */
+#files-wrapper{
+    display: flex;
+    text-align: left;
+    align-items: center;
+    justify-content: center;
+
+    margin: 25px 0px;
+    padding: 25px;
+    box-shadow: black 0px 0px 4px;
+    background-color: #000C1DAF;
+}
+
+#files-wrapper ul {
+    list-style: none;
+}
+
+#files-wrapper ul a {
+    text-decoration: none;
+}
+#files-wrapper ul li{
+    margin: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: 200ms;
+    color: #D3DDEB;
+}
+
+#files-wrapper ul a li:hover{
+    background-color: #ABCCFC7F;
 }
