@@ -92,6 +92,26 @@ body {
     font-size: 16px;
 }
 
-.content-text ul {
-    margin: 20px 40px;
+.content-text ul{
+    margin: 10px 20px;
+}
+
+.link-list ul {
+    list-style: none;
+}
+
+.link-list ul li{
+    margin: 5px;
+    padding: 10px;
+    border-radius: 5px;
+    transition: 200ms;
+    width: fit-content;
+}
+
+.link-list ul a {
+    text-decoration: none;
+}
+
+.link-list ul a li:hover{
+    background-color: #567DB37F;
 }

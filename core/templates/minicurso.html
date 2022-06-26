@@ -1,0 +1,115 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GIMA - Minicursos</title>
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/projeto.css' %}" rel="stylesheet" />
+    </head>
+
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
+                <li>
+                    <a href="{% url 'contato' %}" class="nav-right">Contato</a>
+                </li>
+                <li>
+                    <a href="{% url 'projetos' %}" class="nav-right"
+                        >Projetos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'eventos' %}" class="nav-right">Eventos</a>
+                </li>
+                <li>
+                    <a href="{% url 'minicursos' %}" class="nav-right active"
+                        >Minicursos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'colaboradores' %}" class="nav-right"
+                        >Colaboradores</a
+                    >
+                </li>
+            </ul>
+        </nav>
+
+        <div id="title-header">
+            <div>
+                <a href="/">
+                    <img
+                        src="{% static 'images/logo.png' %}"
+                        alt="Logo do GIMA"
+                        id="logo"
+                    />
+                </a>
+                <h1>GRUPO IMAGEM & AÇÃO</h1>
+            </div>
+        </div>
+
+        <div class="content-box">
+            <div id="content-title">
+                <h1>{{ minicurso.titulo }}</h1>
+            </div>
+
+            <div class="content-text" id="projetos-body">
+                <div id="project-header">
+                    <p><b>Resumo:</b> {{ minicurso.resumo }} </p>
+                    <p>
+                        <b>Ministrante(s):</b>
+                        <ul>
+                            {% for ministrante in ministrantes %}
+                            <li>
+                                {{ ministrante.nome }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </p>
+                    <p><b>Periodo de realização:</b> {{ minicurso.inicio }} - {{ minicurso.fim }}</p>
+                </div>
+            </div>
+
+            <div id="videos-files-section">
+                {% if videos %}
+                <h2>Videos</h2>
+                <h3>Aulas e apresentações</h3>
+                <div class="videos-files-wrapper" id="videos-wrapper">
+                    <iframe
+                        src="{{ videos.first.link }}"
+                        frameborder="0"
+                        allowfullscreen
+                    ></iframe>
+                    <ul>
+                        {% for video in videos %}
+                        <a href="{{ video.link }}">
+                            <li>{{ video.titulo }}</li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if arquivos %}
+                <h2>Arquivos</h2>
+                <h3>Relatórios, resumos e roteiros</h3>
+                <div class="videos-files-wrapper" id="files-wrapper">
+                    <ul>
+                        {% for arquivo in arquivos %}
+                        <a href="{{ arquivo.link }}" target="_blank">
+                            <li>{{ arquivo.titulo }}</li>
+                        </a>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <script src="{% static 'js/scripts.js' %}"></script>
+    </body>
+</html>

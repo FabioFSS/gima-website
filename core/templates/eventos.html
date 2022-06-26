@@ -2,52 +2,75 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIMA - Eventos</title>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GIMA - Eventos</title>
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
 
-  <body>
-    <nav id="navbar">
-      <ul>
-        <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
-        <li><a href="{% url 'contato' %}" class="nav-right">Contato</a></li>
-        <li><a href="{% url 'projetos' %}" class="nav-right">Projetos</a></li>
-        <li><a href="{% url 'eventos' %}" class="nav-right active">Eventos</a></li>
-        <li><a href="{% url 'minicursos' %}" class="nav-right">Minicursos</a></li>
-        <li><a href="{% url 'colaboradores' %}" class="nav-right">Colaboradores</a></li>
-      </ul>
-    </nav>
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
+                <li>
+                    <a href="{% url 'contato' %}" class="nav-right">Contato</a>
+                </li>
+                <li>
+                    <a href="{% url 'projetos' %}" class="nav-right"
+                        >Projetos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'eventos' %}" class="nav-right active"
+                        >Eventos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'minicursos' %}" class="nav-right"
+                        >Minicursos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'colaboradores' %}" class="nav-right"
+                        >Colaboradores</a
+                    >
+                </li>
+            </ul>
+        </nav>
 
-    <div id="title-header">
-      <div>
-        <a href="/">
-          <img
-            src="{% static 'images/logo.png' %}"
-            alt="Logo do GIMA"
-            id="logo"
-          />
-        </a>
-        <h1>GRUPO IMAGEM & AÇÃO</h1>
-      </div>
-    </div>
+        <div id="title-header">
+            <div>
+                <a href="/">
+                    <img
+                        src="{% static 'images/logo.png' %}"
+                        alt="Logo do GIMA"
+                        id="logo"
+                    />
+                </a>
+                <h1>GRUPO IMAGEM & AÇÃO</h1>
+            </div>
+        </div>
 
-    <div id="eventos-content-box" class="content-box">
-      <div id="content-title">
-        <h1>EVENTOS</h1>
-      </div>
+        <div id="eventos-content-box" class="content-box">
+            <div id="content-title">
+                <h1>EVENTOS</h1>
+            </div>
 
-      <div class="content-text" id="eventos-content">
-        <ul>
-          <li>II Semana Tecnológica do grupo IMA - Imagem e Ação</li>
-          <li>XIV Workshop de Visão Computacional - 12 a 14/11/2018</li>
-          <li>I Semana de inverno do grupo IMA - Imagem & Ação</li>
-          <li>I minicurso de Introdução à imagem digital</li>
-        </ul>
-      </div>
-    </div>
-  </body>
+            <div class="link-list" id="eventos-content">
+                {% if eventos %}
+                <ul>
+                    {% for evento in eventos %}
+                    <a href="{% url 'evento' evento.id %}"
+                        ><li>{{evento.titulo}}</li></a
+                    >
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>Não há eventos</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
 </html>

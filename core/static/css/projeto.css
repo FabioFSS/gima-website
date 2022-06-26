@@ -43,7 +43,7 @@
 }
 #videos-wrapper ul a li{
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     transition: 200ms;
     color: #D3DDEB;
@@ -75,7 +75,7 @@
 }
 #files-wrapper ul li{
     margin: 5px;
-    padding: 5px;
+    padding: 10px;
     border-radius: 5px;
     transition: 200ms;
     color: #D3DDEB;

@@ -2,67 +2,73 @@
 
 <!DOCTYPE html>
 <html lang="pt-br">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GIMA - Minicursos</title>
-    <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
-  </head>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>GIMA - Minicursos</title>
+        <link href="{% static 'css/styles.css' %}" rel="stylesheet" />
+    </head>
 
-  <body>
-    <nav id="navbar">
-      <ul>
-        <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
-        <li><a href="{% url 'contato' %}" class="nav-right">Contato</a></li>
-        <li><a href="{% url 'projetos' %}" class="nav-right">Projetos</a></li>
-        <li><a href="{% url 'eventos' %}" class="nav-right">Eventos</a></li>
-        <li><a href="{% url 'minicursos' %}" class="nav-right active">Minicursos</a></li>
-        <li><a href="{% url 'colaboradores' %}" class="nav-right">Colaboradores</a></li>
-      </ul>
-    </nav>
+    <body>
+        <nav id="navbar">
+            <ul>
+                <li><a href="{% url 'index' %}" class="nav-left">Inicio</a></li>
+                <li>
+                    <a href="{% url 'contato' %}" class="nav-right">Contato</a>
+                </li>
+                <li>
+                    <a href="{% url 'projetos' %}" class="nav-right"
+                        >Projetos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'eventos' %}" class="nav-right">Eventos</a>
+                </li>
+                <li>
+                    <a href="{% url 'minicursos' %}" class="nav-right active"
+                        >Minicursos</a
+                    >
+                </li>
+                <li>
+                    <a href="{% url 'colaboradores' %}" class="nav-right"
+                        >Colaboradores</a
+                    >
+                </li>
+            </ul>
+        </nav>
 
-    <div id="title-header">
-      <div>
-        <a href="/">
-          <img
-            src="{% static 'images/logo.png' %}"
-            alt="Logo do GIMA"
-            id="logo"
-          />
-        </a>
-        <h1>GRUPO IMAGEM & AÇÃO</h1>
-      </div>
-    </div>
+        <div id="title-header">
+            <div>
+                <a href="/">
+                    <img
+                        src="{% static 'images/logo.png' %}"
+                        alt="Logo do GIMA"
+                        id="logo"
+                    />
+                </a>
+                <h1>GRUPO IMAGEM & AÇÃO</h1>
+            </div>
+        </div>
 
-    <div id="minicursos-content-box" class="content-box">
-      <div id="content-title">
-        <h1>MINICURSOS</h1>
-      </div>
+        <div id="minicursos-content-box" class="content-box">
+            <div id="content-title">
+                <h1>MINICURSOS</h1>
+            </div>
 
-      <div class="content-text" id="minicursos-content">
-        <ul>
-          <li>
-            II Semana Tecnológica do grupo IMA - Imagem e Ação
-            <ol>
-              <li>Laboratório de React Native</li>
-              <li>Processamento digital de imagens: introdução</li>
-              <li>Esteganografia</li>
-              <li>Introdução à imagem digital</li>
-            </ol>
-          </li>
-          <li>
-            Cursos anteriores
-            <ol>
-              <li>Código de barras e QR-code</li>
-              <li>OCR - Optical Character Recognition</li>
-              <li>Reconhecimento facial</li>
-              <li>Imagens médicas</li>
-              <li>Programando para Kinect</li>
-            </ol>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </body>
+            <div class="link-list" id="minicursos-content">
+                {% if minicursos %}
+                <ul>
+                    {% for minicurso in minicursos %}
+                    <a href="{% url 'minicurso' minicurso.id %}"
+                        ><li>{{minicurso.titulo}}</li></a
+                    >
+                    {% endfor %}
+                </ul>
+                {% else %}
+                <p>Não há minicursos</p>
+                {% endif %}
+            </div>
+        </div>
+    </body>
 </html>
